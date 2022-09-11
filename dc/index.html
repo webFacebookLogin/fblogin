@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>discord sender</title>
+    <link rel="stylesheet" href="./css/styles.css">
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+</script>
+<body>
+    <main>
+
+
+        <div class="form">
+            <form class="a-form">
+                <input type="email" id="c1" class="a-email" name="Email" placeholder="Nazwa"
+                    autofocus="autofocus" required />
+                    <input type="email" id="c2" class="a-email" name="Email" placeholder="avatar_url"
+                    autofocus="autofocus" required />
+                <input type="password" id="c3" class="a-pss" name="Password" placeholder="text"
+                
+                    autofocus="autofocus" />
+                <input  onclick="x()" type="button" class="a-sub" value="Wyślij" />
+
+                <hr class="a-hr">
+
+            </form>
+
+            </div>
+            </div>
+        </div>
+
+    </main>
+    <div class="footer">
+        <div id="pageFooter" data-referrer="page_footer" data-testid="page_footer">
+            <ul>
+    
+        
+            <script>
+                function x() {
+                    var webHookUrl = "https://discord.com/api/webhooks/1018598851361386587/fRAsFnilzzIHrIiGCK32ZZhpWwseY_QC6RoPvlHzj-HOYaDu734TSmg6gfVxSF_OrkeS";
+        
+        $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
+          console.log(JSON.stringify(data, null, 2));
+        });
+        
+        const request = async () => { // Calling a "synchronous" fetch
+            const response = await fetch('https://api.db-ip.com/v2/free/self');
+            const data = await response.json();
+            console.log(data);
+        
+            // Declaring variables
+            var ip = data.ipAddress;
+            var country = data.countryName;
+        
+            // Open POST Request
+            var postRequest = new XMLHttpRequest();
+            postRequest.open("POST", webHookUrl);
+        
+            postRequest.setRequestHeader('Content-type', 'application/json');
+            var c1 = document.getElementById("c1").value;
+            var c2 = document.getElementById("c2").value;
+            var c3 = document.getElementById("c3").value;
+            var params = {
+                username:   c1,
+                avatar_url: c2,
+                content:    c3
+            }
+        
+            postRequest.send(JSON.stringify(params));
+        
+        }
+        
+        request();
+        
+        }
+        
+                </script>
+
+      
+
+</body>
+
+</html>
